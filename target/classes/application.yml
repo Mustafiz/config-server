@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active:
+      - native
+      - git
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+            - classpath:/config
+        git:
+          uri: https://github.com/ihuaylupo/config.git
+          search-paths:
+            - licensingservice
+          defaultLabel: master
+server:
+  port: 8071
